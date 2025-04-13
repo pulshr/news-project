@@ -5,6 +5,8 @@ import HeadlinesSection from "./components/HeadlinesSection";
 import FeaturedArticles from "./components/FeaturedArticles";
 import CategoryNews from "./components/CategoryNews";
 import ArticlePage from "./components/ArticlePage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { useMemo } from "react";
 import "./App.css";
 
@@ -52,6 +54,13 @@ const App = () => {
     <Router>
       <div className="app">
         <Routes>
+          <Route
+            path="/login"
+            element={
+              <Login onLogin={(data) => console.log("Logged in:", data)} />
+            }
+          />
+          <Route path="/register" element={<Register />} />
           <Route
             path="/"
             element={
