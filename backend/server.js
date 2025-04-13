@@ -66,12 +66,10 @@ let articles = [
 app.post("/api/register", (req, res) => {
   const { username, password, role } = req.body;
   if (!username || !password || !role) {
-    return res
-      .status(400)
-      .json({ error: "Username, password, and role are required" });
+    return res.status(400).json({ error: "All fields are required" });
   }
 
-  const userExists = users.find((user) => user.username === username);
+  const userExists = users.find((u) => u.username === username);
   if (userExists) {
     return res.status(400).json({ error: "User already exists" });
   }
